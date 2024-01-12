@@ -26,7 +26,7 @@ export const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
         <button
           id="dropdown-button"
           onClick={() => toggleDropdown()}
-          className="inline-flex justify-center px-4 py-2 w-full text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+          className="inline-flex justify-center px-4 py-2 w-full text-sm font-medium text-[#111928] bg-white border border-[#D1D5DB] shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 rounded-lg">
           <span className="mr-2">{title}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ export const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
           </svg>
         </button>
         {isOpen && (
-          <div className="absolute z-10 mt-1 w-full rounded-md bg-white shadow-lg max-h-60 overflow-auto focus:outline-none">
+          <div className="absolute z-10 mt-1 w-full rounded-md bg-white shadow-lg max-h-60 overflow-auto focus:outline-none text-[#111928]">
             {/* <input
               type="text"
               className="w-full px-4 py-2 focus:ring-0 focus:outline-none"
@@ -75,7 +75,7 @@ export const SelectWithSearch: React.FC<SelectWithSearchProps> = ({
           className="hidden absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1">
           <input
             id="search-input"
-            className="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none"
+            className="block w-full px-4 py-2 border rounded-md  border-gray-300 focus:outline-none text-[#111928]"
             type="text"
             placeholder="Search items"
             autoComplete="off"
