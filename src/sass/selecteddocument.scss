@@ -1,0 +1,22 @@
+.selected-document {
+  .content-div {
+    border-radius: 8px;
+    background-color: #f3f4f6;
+
+    .content-text {
+      //styleName: text-xs/font-semibold;
+      font-family: Inter;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    .content-arrow {
+      min-width: 56px;
+      min-height: 64px;
+    }
+  }
+}
