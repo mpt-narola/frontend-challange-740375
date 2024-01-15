@@ -51,7 +51,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white flex-1 border-solid border-[#D1D5DB] p-4 flex flex-col gap-3 rounded-lg selected-document ">
+      <div className="bg-white flex-1 border-solid border-[#D1D5DB] p-4 flex flex-col gap-3 rounded-lg">
         <SelectedDocument />
       </div>
     </div>
