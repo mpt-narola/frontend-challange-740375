@@ -47,7 +47,7 @@ const SearchUI: React.FC<SearchUiProps> = ({}) => {
       <div className="relative w-full p-0">
         <input
           type="text"
-          className="pl-10 pr-4 py-2 border rounded-lg w-full"
+          className="pl-10 pr-4 py-2 border rounded-lg w-full placeholder:text-sm placeholder:font-normal"
           placeholder="Search"
           style={{
             fontSize: "14px",

@@ -19,8 +19,7 @@ const SelectedDocument: React.FC = () => {
             {selectedDocuments.map((el, i) => (
               <div
                 key={i}
-                className=" h-10 py-2 px-1.5 rounded text-sm leading-3 align-middle"
-              >
+                className=" h-10 py-2 px-1.5 rounded text-sm leading-3 align-middle">
                 <div className="font-medium flex flex-row justify-between">
                   <div className="flex flex-row gap-2">
                     <span>

@@ -34,19 +34,16 @@ const Home = () => {
               className="flex justify-between"
               style={{
                 padding: "8px 6px ",
-              }}
-            >
+              }}>
               <p className="text-sm font-medium text-[#111928] my-auto p">
                 53 Available Documents
               </p>
               <ToggleSwitch />
             </div>
           </div>
-          <div className="flex-grow ">
+          <div className="flex-grow flex-col justify-between bg-[#F9FAFB] rounded-lg border border-[#FF5A1F]">
             {accordionItems.map((item, i) => (
-              <div className="flex flex-col">
-                <Accordion title={item?.title} content={item.content} key={i} />
-              </div>
+              <Accordion title={item?.title} content={item.content} key={i} />
             ))}
           </div>
         </div>
