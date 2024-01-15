@@ -1,13 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <h1>Starter</h1>
-    </>
+    <div className="min-h-full w-full  bg-[#ddd]">
+      <div className="container p-4 mx-auto">
+        <Home />
+      </div>
+    </div>
   );
 }
 
