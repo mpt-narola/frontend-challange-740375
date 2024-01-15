@@ -1,17 +1,68 @@
 import React, { useState } from "react";
 
 import RightIcon from "../assets/right-arrow.png";
-
+import { IContent, IaccordionItems } from "../data/accordion";
 interface AccordionProps {
   title: string;
   content?: string[];
+  id: number;
+  documents: IaccordionItems[];
+  contents: IContent[];
+  setDocuments: React.Dispatch<React.SetStateAction<IaccordionItems[]>>;
+  setSelectedDocuments: React.Dispatch<React.SetStateAction<any>>;
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
+interface Icontent {
+  title: string;
+  content: IContent;
+  id: number;
+}
+
+export const Accordion: React.FC<AccordionProps> = ({
+  documents,
+  title,
+  contents,
+  id,
+  setDocuments,
+  setSelectedDocuments,
+}) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const handleToggle = () => {
     setIsExpanded((isExpanded) => !isExpanded);
+  };
+
+  const contentHandler = ({ title, content, id }: Icontent) => {
+    console.log({ title, content, id });
+
+    const parentIndex = documents.findIndex((el) => el.id === id);
+    let selectedDocuments = [];
+
+    if (parentIndex) {
+      const contents = documents[parentIndex]?.contents;
+      const findContentIndex = contents.findIndex((el) => el.id === content.id);
+
+      const newContents = contents.filter((el) => el.id !== content.id);
+
+      selectedDocuments.push({
+        id: findContentIndex,
+        content: contents[findContentIndex].contentDescription,
+        parentId: id,
+      });
+
+      const tempDocuments = [...documents];
+      tempDocuments[parentIndex].contents = newContents;
+
+      setDocuments(tempDocuments);
+      setSelectedDocuments((prev: any) => [
+        ...prev,
+        {
+          id: contents[findContentIndex].id,
+          content: contents[findContentIndex].contentDescription,
+          parentId: id,
+        },
+      ]);
+    }
   };
 
   return (
@@ -58,14 +109,11 @@ export const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
           borderRadius: "0px 1px 0px 1px",
         }}
       >
-        {content?.length ? (
-          content?.map((content, i) => (
+        {contents?.length ? (
+          contents?.map((el: IContent) => (
             <div
-              className="flex gap-2 rounded justify-between bg-white"
-              key={i}
-              style={{
-                padding: "8px 6px 8px 6px",
-              }}
+              className="flex gap-2 rounded p-2 items-center justify-between bg-white"
+              key={el.id}
             >
               <span
                 className="text-sm font-medium text-[#111928]"
@@ -73,20 +121,13 @@ export const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
                   lineHeight: "14px",
                 }}
               >
-                {content}
+                {el.contentDescription}
               </span>
-              <button className="border border-[#E5E7EB] rounded p-1">
-                <span>
-                  <img
-                    src={RightIcon}
-                    alt="leftIcon"
-                    style={{
-                      height: "13px",
-                      width: "13px",
-                      margin: "0.5px",
-                    }}
-                  />
-                </span>
+              <button
+                className="border border-[#E5E7EB] rounded p-1"
+                onClick={() => contentHandler({ id, title, content: el })}
+              >
+                <img src={RightIcon} alt="leftIcon" className="h-4 w-4" />
               </button>
             </div>
           ))

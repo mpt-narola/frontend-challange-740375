@@ -1,9 +1,9 @@
-interface IDropDownItem {
+export interface IDropDownItem {
   label: any;
   value: any;
 }
 
-interface ISelectDropDownMenu {
+export interface ISelectDropDownMenu {
   title: string;
   items: IDropDownItem[];
   id: number;
