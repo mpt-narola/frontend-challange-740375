@@ -12,7 +12,7 @@ interface ISelectDropDownMenu {
 export const filterDropDownMenuItems: ISelectDropDownMenu[] = [
   {
     id: 1,
-    title: "Job Templetes",
+    title: "Job Templates",
     items: [
       {
         label: "Heavy Equipment Operator",
@@ -32,8 +32,14 @@ export const filterDropDownMenuItems: ISelectDropDownMenu[] = [
       },
     ],
   },
+
   {
     id: 2,
+    title: "Subsidiary",
+    items: [],
+  },
+  {
+    id: 3,
     title: "Locations",
     items: [
       {
@@ -49,11 +55,6 @@ export const filterDropDownMenuItems: ISelectDropDownMenu[] = [
         value: 3,
       },
     ],
-  },
-  {
-    id: 3,
-    title: "Subsidiary",
-    items: [],
   },
   {
     id: 4,

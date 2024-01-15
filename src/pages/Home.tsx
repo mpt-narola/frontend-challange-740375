@@ -5,10 +5,11 @@ import SelectedDocument from "../components/documents/SelectedDocument";
 import ToggleSwitch from "../components/ToggleSwitch";
 import { accordionItems } from "../data/accordion";
 import { filterDropDownMenuItems } from "../data/dropdown";
+import TagUi from "../components/TagUi";
 
 const Home = () => {
   return (
-    <div className="flex h-screen w-screen gap-6 flex-wrap bg-[#D1D5DB] p-4">
+    <div className="flex min-h-screen w-screen gap-6 flex-wrap bg-[#D1D5DB] p-4">
       <div className="bg-white flex-1  border-[#D1D5DB] p-4 flex flex-col gap-3 rounded-lg ">
         <p className="text-base font-medium text-[#111928]">
           Available Documents
@@ -30,18 +31,22 @@ const Home = () => {
                 </div>
               ))}
             </div>
+            <div className="rounded flex flex-wrap border border-[#E5E7EB] gap-2 p-2">
+              <TagUi />
+            </div>
             <div
               className="flex justify-between"
               style={{
                 padding: "8px 6px ",
-              }}>
+              }}
+            >
               <p className="text-sm font-medium text-[#111928] my-auto p">
                 53 Available Documents
               </p>
               <ToggleSwitch />
             </div>
           </div>
-          <div className="flex-grow flex-col justify-between bg-[#F9FAFB] rounded-lg border border-[#FF5A1F]">
+          <div className="flex-grow flex-col justify-between bg-[#F9FAFB] rounded-lg border border-[#FF5A1F] overflow-hidden">
             {accordionItems.map((item, i) => (
               <Accordion title={item?.title} content={item.content} key={i} />
             ))}
